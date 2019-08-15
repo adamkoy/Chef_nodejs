@@ -8,17 +8,17 @@ apt_update "update_sources" do
   action :update
 end
 
-package 'nginx'
-service 'nginx' do
-  action [:enable, :start]
-end
 
 include_recipe 'apt'
 include_recipe 'nodejs'
 nodejs_npm 'pm2'
 
- package 'nodejs'
- service 'nodejs' do
+package 'nginx'
+service 'nginx' do
+  action [:enable, :start]
+end
+
+ package 'nodejs' do
    action [:enable, :start]
  end
 
