@@ -18,10 +18,7 @@ service 'nginx' do
   action [:enable, :start]
 end
 
- package 'nodejs' do
-   action [:enable, :start]
- end
-
+ 
  template '/etc/nginx/sites-available/proxy.conf' do
    source 'proxy.conf.erb'
    variables proxy_port: 3000
